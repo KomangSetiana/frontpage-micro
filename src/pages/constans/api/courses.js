@@ -1,7 +1,11 @@
 import Axios from "../../configs/axios";
 
-export default {
-  all: (options = { params: { status: "published" } }) =>
-    Axios.get("/courses", options).then((res) => res.data),
-  details: (id) => Axios.get(`/courses/${id}`),
+const all = (options = { params: { status: "published" } }) =>
+  Axios.get("/courses", options).then((res) => res.data);
+const details = (id) => Axios.get(`/courses/${id}`);
+
+const courses = {
+  all,
+  details,
 };
+export default courses;
